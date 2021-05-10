@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<script type="text/javascript">
+	function myFormCheck(theform) {
+		// ducument.mymember ==> this.form ==> theform
+		// 이름확인
+		if (theform.mname.value == null || theform.mname.value == "") {
+			alert('이름을 입력하세요');
+			theform.mname.focus();
+			return;
+		}
+		
+		// 아이디 확인 mid
+		if (theform.mid.value == null || theform.mid.value == "") {
+			alert('ID를 입력하세요');
+			theform.mid.focus();
+			return;
+		}
+		
+		// 암호확인 mpass
+		if (theform.mpass.value == null || theform.mpass.value == "") {
+			alert('패스워드를 입력하세요');
+			theform.mpass.focus();
+			return;
+		}	
+		// 주소확인 maddress
+		if (theform.maddress.value == null || theform.maddress.value == "") {
+			alert('주소를 입력하세요');
+			theform.maddress.focus();
+			return;
+		}
+		
+		cnt = 0;
+		if (theform.mhobby1.checked == true) ++cnt;
+		if (theform.mhobby2.checked == true) ++cnt;
+		if (theform.mhobby3.checked == true) ++cnt;
+		if (theform.mhobby4.checked == true) ++cnt;
+		if (cnt < 1) {
+			alert('취미는 한개 이상 선택해야 합니다.');
+			return;
+		}
+	
+		
+		//자기소개확인 : value라는 속성이없을뿐 태그 바디의 내용이 value로 인식된다.
+		if(theform.mresume.value == null || theform.mresume.value == "") {
+			alert('자기소개를 입력하세요');
+			theform.mresume.focus();
+			return;
+		}
+		
+		// 연락처 select
+		if (theform.mphone1.value == "000") {
+			alert('국번을 선택하시오')
+		}
+		
+		else if (theform.mphone2.selected == null || theform.mphone2.selected == "") {
+			alert('전화번호 입력하세요')
+			theform.mphone2.focus();
+		}
+		else if (theform.mphone3.selected == null || theform.mphone3.selected == "") {
+			alert('전화번호 입력하세요')
+			theform.mphone3.focus();
+		}
+		
+		// document.submit() ; 확인되면 전송하기
+		
+	}
+</script>
+
+<body>
+	<form action="" name="mymember">
+		<table border="1">
+			<tr>
+				<td colspan="2" align="center"><font color="blue" size="5">회원가입폼
+						만들기 </font><br></td>
+			</tr>
+			<tr>
+				<td width="100">이름</td>
+				<td width="400"><input type="text" name="mname" size="15"></td>
+			</tr>
+			<tr>
+				<td>아이디</td>
+				<td><input type="text" name="mid" size="15"></td>
+			</tr>
+			<tr>
+				<td>암호</td>
+				<td><input type="password" name="mpass" size="15"></td>
+			</tr>
+			<tr>
+				<td>주소</td>
+				<td><input type="text" name="maddress" size="40"></td>
+			</tr>
+			<tr>
+				<td>취미</td>
+				<td>
+					<!-- 체크박스는 다중 선택가능하므로 이름이 다르다. --> 
+					<input type="checkbox" name="mhobby1" value="독서">독서 
+					<input type="checkbox" name="mhobby2" value="게임">게임
+					<input type="checkbox" name="mhobby3" value="영화">영화 
+					<input type="checkbox" name="mhobby4" value="잠자기">잠자기
+				</td>
+			</tr>
+			<tr>
+				<td>직업</td>
+				<td>
+					<!-- 라이오버튼은 다중택일용므로 이름이 같다 --> 
+					<input type="radio" name="mjob" value="백수" checked>백수
+					<input type="radio" name="mjob" value="백조">백조 
+					<input type="radio" name="mjob" value="군인">군인 
+					<input type="radio" name="mjob" value="회사원">회사원
+					<input type="radio" name="mjob" value="프로그래머">프로그래머
+				</td>
+			</tr>
+			<tr>
+				<td>자기소개</td>
+				<td>
+					<!-- 여러줄 입력상자  textarea는 value라는 속성이 없다. 태그바디에 내용을 출력하는게 values이다. --> 
+					<textarea rows="4" cols="40" name="mresume"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>전화번호</td>
+				<td><select name="mphone1">
+						<option value="000" selected>국번을 선택하세요</option>
+						<option value="010">010</option>
+						<option value="011">011</option>
+						<option value="017">017</option>
+						<option value="018">018</option>
+						<option value="019">019</option>
+				</select>-
+				<input type="text" name="mphone2" size="4">-
+				<input type="text" name="mphone3" size="4"></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<!-- submit 버튼은 전송기능이 있는 버튼 --> 
+					<input type="button" value="가입하기" onclick="myFormCheck(this.form)"> 
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="reset" value="다시쓰기">
+				</td>
+				<!-- <td></td> -->
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

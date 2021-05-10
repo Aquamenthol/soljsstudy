@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	function add(a, b) {
+		return a + b;
+	}
+	function addwrite(a, b) {
+		document.write(eval(a + b));	// eval 자동형변환
+	}
+</script>
+
+<script type="text/javascript">
+	a = 100;
+	b = 200;
+	
+	c = add(a, b);
+	
+	alert(c);	// 경고창으로 띄우기
+	document.write(c+ "\n");	// 메인에서 출력하기
+	
+	addwrite(a, b); 	// 함수안의 출력문을 받아서 호출하기
+</script>
+</body>
+</html>

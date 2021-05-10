@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script type="text/javascript">
+
+// 직접접근법, id접근법, name접근법
+	function mOver(str) {
+		document.aa.txt.value = str;
+	}
+	function mOut() {
+		document.aa.txt.value = "마우스를 그림에"
+	}
+	
+	function callTxt1() {
+		// id의 값으로 요소를 읽어온다. 43번줄
+		document.getElementById("txt1");
+		alert(mytxt.value);
+	}
+	
+	function callTxt2() {
+		// name의 값으로 요소를 읽어온다. 44번줄
+		document.getElementByname("txt2");
+		alert(mytxt.value);
+	}
+</script>
+</head>
+<body>
+
+	<center>
+		<p>
+			<br>
+		<form name="aa">
+			<input type="text" name="txt" size="55" value="">
+		</form>
+		<a herf="pagescroll.htm" onMouseOver="mOver('첫번째 그림 감상')"
+			onMouseOut="mOut()"> <img src=./images/cup.gif width="399"
+			height="266">
+		</a> <a herf="pagescroll.htm" onMouseOver="mOver('두번째 그림 감상')"
+			onMouseOut="mOut()"> <img src=./images/gif.gif width="466"
+			height="266">
+		</a>
+		<form name="bb">
+		txt1:	<input type="text" id="txt1" name="txt1" size"55" value="안녕하세요11111">
+		txt2:	<input type="text" id="txt2" name="txt2" size"55" value="안녕하세요22222">
+		</form>
+		<input type="button" value="txt1 호출" onclick="callTxt1()"> <br>
+		<input type="button" value="txt2 호출" onclick="callTxt2()"> <br>
+	</center>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str1 = "독도는 우리땅";	// 스페이스바 띄어쓰기도 1자
+		var str2 = "welcome";
+		document.write(str1+"<br>");
+		document.write(str1+" : 길이는" + str1.length+ "자 입니다.<br>");	// 순수 문자길이 한글과 알파뱃의 갯수
+		document.write(str2+"<br>");
+		document.write(str2+" : 길이는" + str2.length+ "자 입니다.<br>");
+		document.write("<br>");
+		
+		str1 = "독도는 우리땅 독도는 우리땅";
+		str2 = "welcome welcome";
+		document.write(str1+"<br>");
+		document.write("처음 나오는 우의 위치는 : " + str1.indexOf('우')+ "번지 입니다.<br>");	// 순수 문자길이 한글과 알파뱃의 갯수
+		document.write("우의 마지막 위치는 : " + str1.lastIndexOf('우')+ "번지 입니다.<br><br>");	// 순수 문자길이 한글과 알파뱃의 갯수
+		document.write(str2+"<br>");
+		document.write("처음 나오는 c의 위치는 : " + str2.indexOf('c')+ "번지 입니다.<br>");
+		document.write("c의 마지막 위치는 : " + str2.lastIndexOf('c')+ "번지 입니다.<br>");
+		
+	</script>
+</body>
+</html>

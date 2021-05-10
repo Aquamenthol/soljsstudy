@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+// 화면에 뿌려지는 함수가 아닌것은 body 태그 시작 전에 선언하여야만 한다.
+
+function showDate() {	// 날짜 함수
+	var today = new Date();
+	var sum_date = (today.getYear()+1900) + "년";
+	
+	sum_date += (today.getMonth() + 1) + "월";
+	sum_date += (today.getDate()) + "일" + " ";
+	m = (today.getDay());	// 요일은 숫자로 반환
+	// 스위치문을 문자요일로 변경
+	switch (m) {
+	case 0: m_day = "Monday";	break;
+	case 1: m_day = "Tuesday";	break;
+	case 2: m_day = "Wednesday";	break;
+	case 3: m_day = "Thursday";	break;
+	case 4: m_day = "Friday";	break;
+	case 5: m_day = "Saturday";	break;
+	case 6: m_day = "Sunday";	break;
+	}
+	
+	sum_date += m_day;
+	document.clock_frm.date_in.value = sum_date;
+}
+
+function showTime() {
+	var now = new Date();
+	var hour = now.getHours();
+	var min = now.getMinutes();
+	var sec = now.getSeconds();
+	var sum_time = (hour >12)? hour - 12 : hour;
+	
+	sum_time +=((min < 10)? ":0" : ":")+min;
+	sum_time +=((sec < 10)? ":0" : ":")+sec;
+	sum_time +=(hour >= 12)? " P.M" : " A.M";
+	// 특정시간 후에 함수를 호출함.
+	document.clock_frm.time_in.value = sum_time;
+	timer_again = setTimeout("showTime()", 1000);
+}
+
+function startClock() {
+	showDate();
+	showTime();
+}
+
+
+</script>
+
+<BODY onLoad="startClock()">
+<h2> 현재 날짜와 시간</h2>
+<form name="clock_frm">
+날짜 : <input type = "text" name = "date_in" size = 25 value=""><br> 
+시간 : <input type = "text" name = "time_in" size = 25 value=""><br> 
+
+
+</form>
+</BODY>
+</html>
